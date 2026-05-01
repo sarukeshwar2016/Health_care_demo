@@ -47,8 +47,8 @@ pipeline {
             steps {
                 echo "Deploying the secure healthcare application..."
                 // Stop and remove any existing container with the same name
-                bat "docker stop ${IMAGE_NAME} || true"
-                bat "docker rm ${IMAGE_NAME} || true"
+                bat "docker stop ${IMAGE_NAME} || exit 0"
+                bat "docker rm ${IMAGE_NAME} || exit 0"
                 
                 // Run the new container on port 8080
                 bat "docker run -d --name ${IMAGE_NAME} -p 8080:80 ${IMAGE_NAME}:${IMAGE_TAG}"
