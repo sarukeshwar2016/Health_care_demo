@@ -50,10 +50,10 @@ pipeline {
                 bat "docker stop ${IMAGE_NAME} || exit 0"
                 bat "docker rm ${IMAGE_NAME} || exit 0"
                 
-                // Run the new container on port 8080
-                bat "docker run -d --name ${IMAGE_NAME} -p 8080:80 ${IMAGE_NAME}:${IMAGE_TAG}"
+                // Run the new container on port 8081
+                bat "docker run -d --name ${IMAGE_NAME} -p 8081:80 ${IMAGE_NAME}:${IMAGE_TAG}"
                 
-                echo "Application is now running at http://localhost:8080"
+                echo "Application is now running at http://localhost:8081"
             }
         }
     }
